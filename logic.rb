@@ -6,3 +6,16 @@ while nums_left > 0
 end
     return current_sum
 end
+
+class Function
+    def myBind
+
+    end
+end
+
+class Array
+    def myEach
+
+
+    end
+end

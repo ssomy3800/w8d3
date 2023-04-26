@@ -1,7 +1,10 @@
 Function.prototype.myBind = function (context) {
-  console.log("hello");
-  console.log(this);
-  return () => this.apply(context);
+  //   return () => this.apply(context);
+  let that = this;
+
+  return function () {
+    return that.apply(context);
+  };
 };
 
 class Lamp {
@@ -18,8 +21,10 @@ const lamp = new Lamp();
 
 turnOn(); // should not work the way we want it to
 
-const boundTurnOn = turnOn.bind(lamp);
-const myBoundTurnOn = turnOn.myBind(lamp);
+console.log(lamp);
 
-boundTurnOn(); // should say "Turning on a lamp"
-myBoundTurnOn(); // should say "Turning on a lamp"
+// const boundTurnOn = turnOn.bind(lamp);
+// const myBoundTurnOn = turnOn.myBind(lamp);
+
+// boundTurnOn(); // should say "Turning on a lamp"
+// myBoundTurnOn(); // should say "Turning on a lamp"
